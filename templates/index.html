@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Court Data Fetcher</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><span class="logo-icon">⚖️</span> Court Data Fetcher <span class="logo-icon">🏛️</span></h1>
+            <p>Fetch Case Metadata & Latest Orders from Delhi High Court</p>
+        </header>
+
+        <main>
+            <section class="search-section">
+                <h2>Find a Case</h2>
+                <form id="caseSearchForm">
+                    <div class="form-group">
+                        <label for="caseType">Case Type:</label>
+                        <select id="caseType" name="caseType" required>
+                            <option value="">Select Case Type</option>
+                            <option value="W.P.(C)">WP(C) - Writ Petition (Civil)</option>
+                            <option value="CM(M)">CM(M) - Civil Misc. Main</option>
+                            <option value="CRL.M.C.">CRL.M.C. - Criminal Misc. Case</option>
+                            <option value="RSA">RSA - Regular Second Appeal</option>
+                            <option value="RFA">RFA - Regular First Appeal</option>
+                            </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="caseNumber">Case Number:</label>
+                        <input type="text" id="caseNumber" name="caseNumber" placeholder="e.g., 12345" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filingYear">Filing Year:</label>
+                        <input type="number" id="filingYear" name="filingYear" min="1950" max="2099" placeholder="e.g., 2023" required>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Fetch Case Details</button>
+                </form>
+                <div id="message" class="message"></div>
+            </section>
+
+            <section id="results-section" class="results-section hidden">
+                <h2>Case Details</h2>
+                <div id="loadingIndicator" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>Fetching data...</p>
+                </div>
+                <div id="caseDetails">
+                    <p><strong>Parties:</strong> <span id="partiesName">N/A</span></p>
+                    <p><strong>Filing Date:</strong> <span id="filingDate">N/A</span></p>
+                    <p><strong>Next Hearing Date:</strong> <span id="nextHearingDate">N/A</span></p>
+
+                    <h3>Latest Orders/Judgments</h3>
+                    <div id="ordersList" class="orders-list">
+                        <p>No orders found yet.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Court Data Fetcher. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

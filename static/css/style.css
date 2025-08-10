@@ -1,0 +1,284 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    --primary-bg-color: #1a1a2e; /* Dark Blue/Purple */
+    --secondary-bg-color: #16213e; /* Slightly lighter dark blue */
+    --text-color: #e0e0e0; /* Light gray for text */
+    --accent-color: #0f3460; /* Darker blue for accents */
+    --highlight-color: #e94560; /* Reddish pink for highlights/buttons */
+    --border-color: #007bff; /* Royal blue for borders */
+    --input-bg-color: #2c394b; /* Dark gray for input fields */
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --success-color: #28a745;
+    --error-color: #dc3545;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--primary-bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top */
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: var(--secondary-bg-color);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px var(--shadow-color);
+    padding: 40px;
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    margin-top: 50px; /* Space from top */
+    border: 1px solid var(--border-color); /* Subtle border */
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-family: 'Cinzel', serif;
+    color: var(--highlight-color);
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.logo-icon {
+    font-size: 0.8em; /* Adjust size relative to h1 */
+    color: var(--border-color); /* Make icons blue */
+}
+
+
+header p {
+    font-size: 1.1em;
+    color: var(--text-color);
+}
+
+h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--border-color);
+    margin-top: 30px;
+    margin-bottom: 25px;
+    font-size: 2em;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    display: inline-block; /* To make border-bottom only as wide as text */
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: 1.05em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select {
+    width: calc(100% - 20px); /* Account for padding */
+    padding: 12px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--input-bg-color);
+    color: var(--text-color);
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group select:focus {
+    border-color: var(--highlight-color);
+    box-shadow: 0 0 8px rgba(233, 69, 96, 0.4);
+}
+
+/* Style for dropdown arrows */
+.form-group select {
+    appearance: none; /* Remove default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e0e0e0'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"); /* Custom arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+    padding-right: 30px; /* Make space for the arrow */
+}
+
+
+.btn-submit {
+    background-color: var(--highlight-color);
+    color: white;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    letter-spacing: 0.5px;
+}
+
+.btn-submit:hover {
+    background-color: #d13a55; /* Slightly darker highlight */
+    transform: translateY(-2px);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+.message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    display: none; /* Hidden by default, shown by JS */
+}
+
+.message.error {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+}
+
+.message.success {
+    background-color: rgba(40, 167, 69, 0.2);
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+}
+
+.results-section {
+    margin-top: 50px;
+    background-color: var(--accent-color);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: left;
+    border: 1px solid var(--border-color);
+}
+
+.results-section h2 {
+    color: var(--highlight-color);
+    border-bottom: 2px solid var(--text-color);
+}
+
+#caseDetails p {
+    margin-bottom: 12px;
+    font-size: 1.1em;
+    color: var(--text-color);
+}
+
+#caseDetails p strong {
+    color: var(--highlight-color);
+}
+
+.orders-list {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: var(--input-bg-color);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.order-item {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.order-item a {
+    color: var(--highlight-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.order-item a:hover {
+    color: var(--border-color);
+    text-decoration: underline;
+}
+
+/* Loading Indicator */
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    color: var(--highlight-color);
+}
+
+.spinner {
+    border: 6px solid rgba(255, 255, 255, 0.3);
+    border-top: 6px solid var(--highlight-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid var(--accent-color);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    header h1 {
+        font-size: 2em;
+        gap: 10px;
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+
+    .form-group input,
+    .form-group select,
+    .btn-submit {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+}
