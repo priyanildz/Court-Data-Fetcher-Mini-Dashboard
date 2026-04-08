@@ -1,17 +1,18 @@
 import os
+from flask_cors import CORS
 from flask import Flask, render_template, request, jsonify
-from database import db, init_db, QueryLog
-from scraper import fetch_case_details # <--- UNCOMMENT THIS LINE
+from backend.database import db, init_db, QueryLog
+from backend.scraper import fetch_case_details # <--- UNCOMMENT THIS LINE
 
 def create_app():
     app = Flask(__name__)
-    
-    # Initialize the database
+    CORS(app)
+
     init_db(app)
 
-    @app.route('/')
-    def index():
-        return render_template('index.html')
+    # @app.route('/')
+    # def index():
+    #     return render_template('index.html')
 
     @app.route('/search_case', methods=['POST'])
     def search_case():
@@ -72,6 +73,6 @@ def create_app():
 
     return app
 
-if __name__ == '__main__':p
+if __name__ == '__main__':
     app = create_app()
     app.run(debug=True) # Run in debug mode for development

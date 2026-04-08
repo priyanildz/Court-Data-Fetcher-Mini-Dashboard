@@ -28,9 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const caseType = formData.get('caseType');
         const caseNumber = formData.get('caseNumber');
         const filingYear = formData.get('filingYear');
-
+// fetch('/search_case'
         try {
-            const response = await fetch('/search_case', {
+            const response = await fetch('https://your-backend.onrender.com/search_case', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
