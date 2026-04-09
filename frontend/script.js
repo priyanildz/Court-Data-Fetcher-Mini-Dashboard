@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const filingDateSpan = document.getElementById('filingDate');
     const nextHearingDateSpan = document.getElementById('nextHearingDate');
     const ordersListDiv = document.getElementById('ordersList');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoader = submitBtn.querySelector('.btn-loader');
 
     caseSearchForm.addEventListener('submit', async (event) => {
         event.preventDefault(); // Prevent default form submission
@@ -28,9 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const caseType = formData.get('caseType');
         const caseNumber = formData.get('caseNumber');
         const filingYear = formData.get('filingYear');
-// fetch('/search_case'
+
+        submitBtn.classList.add('loading');
+        btnLoader.classList.remove('hidden');
+        btnText.textContent = "Fetching Case Details...";
+        submitBtn.disabled = true;
+        // fetch('http://127.0.0.1:5000/search_case') for local testing
         try {
-            const response = await fetch('https://court-data-fetcher-mini-dashboard-3ym9.onrender.com/search_case', {
+            const response = await fetch('http://127.0.0.1:5000/search_case', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -42,6 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
             loadingIndicator.classList.add('hidden');
 
             const data = await response.json();
+
+            submitBtn.classList.remove('loading');
+            btnLoader.classList.add('hidden');
+            btnText.textContent = "Fetch Case Details";
+            submitBtn.disabled = false;
 
             if (response.ok) {
                 if (data.success) {
@@ -61,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             ordersListDiv.appendChild(orderItem);
                         });
                     } else {
-                         ordersListDiv.innerHTML = '<p>No orders found for this case.</p>';
+                        ordersListDiv.innerHTML = '<p>No orders found for this case.</p>';
                     }
 
                     showMessage('Case details fetched successfully!', 'success');
@@ -74,6 +87,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         } catch (error) {
             console.error('Fetch error:', error);
+            submitBtn.classList.remove('loading');
+            btnLoader.classList.add('hidden');
+            btnText.textContent = "Fetch Case Details";
+            submitBtn.disabled = false;
             loadingIndicator.classList.add('hidden'); // Hide loading on network error
             showMessage('Network error or server unreachable. Please try again later.', 'error');
         }

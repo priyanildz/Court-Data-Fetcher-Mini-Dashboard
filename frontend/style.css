@@ -124,6 +124,10 @@ h2 {
 
 
 .btn-submit {
+    width: 100%;
+    max-width: 320px;
+    margin: 20px auto 0 auto;
+
     background-color: var(--highlight-color);
     color: white;
     padding: 14px 30px;
@@ -132,9 +136,13 @@ h2 {
     font-size: 1.1em;
     font-weight: bold;
     cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
     transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 8px var(--shadow-color);
-    letter-spacing: 0.5px;
 }
 
 .btn-submit:hover {
@@ -281,4 +289,23 @@ footer {
         font-size: 0.9em;
         padding: 10px;
     }
+}
+
+/* Loader inside button */
+/* .btn-loader {
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(255,255,255,0.4);
+    border-top: 3px solid white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+} */
+
+.btn-submit.loading {
+    cursor: not-allowed;
+    background-color: #c93a50; /* slightly darker than normal */
+}
+
+.btn-submit.loading .btn-text {
+    color: rgba(255,255,255,0.9);
 }
