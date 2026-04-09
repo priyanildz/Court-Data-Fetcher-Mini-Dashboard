@@ -75,4 +75,4 @@ def create_app():
 
 if __name__ == '__main__':
     app = create_app()
-    app.run(debug=True) # Run in debug mode for development
+    app.run(debug=False) # Run in debug mode for development
