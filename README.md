@@ -61,11 +61,11 @@ The application will start running on `http://127.0.0.1:5000`.
 ## Screenshots
 
 <p align="center">
-  <img src="./assets/screenshot1.png" width="700"/>
+  <img src="./assets/Screenshot1.png" width="700"/>
 </p>
 
 <p align="center">
-  <img src="./assets/screenshot2.png" width="700"/>
+  <img src="./assets/Screenshot2.png" width="700"/>
 </p>
 
 ## Usage
