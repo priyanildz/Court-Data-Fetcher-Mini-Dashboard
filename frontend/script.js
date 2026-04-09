@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const filingYear = formData.get('filingYear');
 // fetch('/search_case'
         try {
-            const response = await fetch('https://your-backend.onrender.com/search_case', {
+            const response = await fetch('https://court-data-fetcher-mini-dashboard-3ym9.onrender.com/search_case', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
