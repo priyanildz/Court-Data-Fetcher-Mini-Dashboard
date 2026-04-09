@@ -1,8 +1,8 @@
 import os
 from flask_cors import CORS
 from flask import Flask, render_template, request, jsonify
-from backend.database import db, init_db, QueryLog
-from backend.scraper import fetch_case_details # <--- UNCOMMENT THIS LINE
+from database import db, init_db, QueryLog
+from scraper import fetch_case_details
 
 def create_app():
     app = Flask(__name__)
