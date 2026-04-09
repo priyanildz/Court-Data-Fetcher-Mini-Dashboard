@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // fetch('http://127.0.0.1:5000/search_case') for local testing
         // fetch('https://court-data-fetcher-mini-dashboard-3ym9.onrender.com/search_case') for deployed backend
         try {
-            const response = await fetch('https://court-data-fetcher-mini-dashboard-3ym9.onrender.com/search_case', {
+            const response = await fetch('http://127.0.0.1:5000/search_case', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

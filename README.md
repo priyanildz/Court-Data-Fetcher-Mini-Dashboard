@@ -58,6 +58,16 @@ This project is a small web application that fetches case metadata and the lates
 
 The application will start running on `http://127.0.0.1:5000`.
 
+## Screenshots
+
+<p align="center">
+  <img src="./assets/screenshot1.png" width="700"/>
+</p>
+
+<p align="center">
+  <img src="./assets/screenshot2.png" width="700"/>
+</p>
+
 ## Usage
 
 1.  Open your web browser and navigate to `http://127.0.0.1:5000`.
