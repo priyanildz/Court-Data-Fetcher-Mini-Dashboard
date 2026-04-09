@@ -86,6 +86,3 @@ This approach eliminates the need for manual intervention or a third-party CAPTC
 
 ## Database
 The application uses SQLite as its database. Each query made by the user is logged to a `query_log` table, which stores the query details, the raw HTML response from the court site, and the outcome (success/error). The database file (`court_data.db`) is automatically created inside the `instance/` folder upon the first run.
-
-## License
-This project is licensed under the **MIT License**.
