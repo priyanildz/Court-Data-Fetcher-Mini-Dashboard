@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = true;
         // fetch('http://127.0.0.1:5000/search_case') for local testing
         try {
-            const response = await fetch('http://127.0.0.1:5000/search_case', {
+            const response = await fetch('https://court-data-fetcher-mini-dashboard-3ym9.onrender.com/search_case', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
