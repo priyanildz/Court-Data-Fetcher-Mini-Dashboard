@@ -23,6 +23,7 @@ async def fetch_case_details_async(case_type, case_number, filing_year):
         async with async_playwright() as p:
             browser = await p.chromium.launch(
                 headless=True,
+                executable_path="/opt/render/.cache/ms-playwright/chromium-1181/chrome-linux/chrome",
                 args=[
                     "--no-sandbox",
                     "--disable-dev-shm-usage",
@@ -317,7 +318,7 @@ async def fetch_case_details_async(case_type, case_number, filing_year):
         if "browser" in locals():
             await browser.close()
         print("Browser closed.")
-        return case_data, raw_html_response, error_message
+    return case_data, raw_html_response, error_message
 
 
 def fetch_case_details(case_type, case_number, filing_year):
